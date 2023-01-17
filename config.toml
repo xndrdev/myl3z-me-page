@@ -1,0 +1,15 @@
+baseURL = 'https://myl3z90.github.io/myl3z-me-page'
+languageCode = 'de-de'
+title = 'myl3z.me - Cyber Security'
+
+theme = "cactus"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 2
