@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://xndrdev.github.io/myl3z-me-page/'
 languageCode = 'de-de'
 title = 'myl3z.me - CyberSec - Dev - Server'
 
