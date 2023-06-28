@@ -38,7 +38,7 @@ Proxmox is installed! We can start to create our virtual machines.
 
 ## Environment
 
-To build a Windows infrastructure and figure out what we need, I have to think about the environment first. Let's pretend where is a WordPress Agency called **AnimalPress**.
+To build a Windows infrastructure and figure out what we need, I have to think about the environment first. Let's pretend there is a WordPress Agency called **AnimalPress**.
 
 ### Domain
 Our domain will be called **ad.animalpress.local**
