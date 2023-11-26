@@ -1,5 +1,5 @@
 ---
-title: "02 18 Min Grub 2"
+title: "02 - 18 min - Grub 2"
 date: 2023-11-25T20:26:54+01:00
 draft: false
 tags: 18min server grub2
