@@ -62,10 +62,7 @@ After creating a RAID, I can format the new **md0** device: `mkfs -t ext4 /dev/m
 If I restart my computer, the configuration will be gone, so I have to write the configuration for **mdadm**.
 `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`.
 
+There are some other command with which you can dissolve the RAID or rebuild it with a new disk.
 
-
-### Hardware RAID
-The operation system only sees one device, which it uses as a usual drive. But at the other end there
-can be a Hardware RAID or Software RAID installed with mulitple drives.
-
-
+At the end I think RAID is very useful for a modern server infrastrucute, to prevent data loss, but you 
+have to monitor it to make sure everything is working like intended.
