@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2023-01-16T00:29:11+01:00
+date: 2024-09-20T00:29:11+01:00
 draft: false
 ---
 
@@ -8,8 +8,12 @@ Hi, my name is xander and I like cyber security, software development and server
 
 Currenlty I'm studying [Bachelor Cyber Security](https://www.iu.de/en/bachelor/cyber-security/) at the [IU International University of Applied Sciences](https://www.iu.de/en/).
 
-In my free time I like to bring interesting ideas to life, which mostly are never finished :D
+In my free time I like to bring interesting ideas to life, play around with tech learning new things.
 
-On the way to finish these projects I will at least write about them in this blog.
+This page is basically my notes. Some notes are really just notes, some will be blog posts
+and some will be collections of links.
+
+If you find the notes interesting, leave me a comment and I can write more about the
+notes or transform it to a blog post.
 
 Have fun!
