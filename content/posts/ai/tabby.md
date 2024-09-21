@@ -12,3 +12,7 @@ https://github.com/TabbyML/tabby
 - What is tabby?
 - How can I use it? 
 - How can I install it?
+
+## Installation
+- Make sure that Docker and Docker Compose is installed
+- 
