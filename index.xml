@@ -1,10 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>myl3z.me - My Notes</title><link>https://myl3z.me/</link><description>Recent content on myl3z.me - My Notes</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>xander</copyright><lastBuildDate>Fri, 20 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://myl3z.me/index.xml" rel="self" type="application/rss+xml"/><item><title>tabby</title><link>https://myl3z.me/posts/ai/tabby/</link><pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate><guid>https://myl3z.me/posts/ai/tabby/</guid><description>&lt;h1 id="tabby">tabby&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>myl3z.me - My Notes</title><link>https://myl3z.me/</link><description>Recent content on myl3z.me - My Notes</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>xander</copyright><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://myl3z.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Fresh Ubuntu and Docker installation</title><link>https://myl3z.me/posts/server/fresh-ubuntu-vm/</link><pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate><guid>https://myl3z.me/posts/server/fresh-ubuntu-vm/</guid><description>&lt;h1 id="ubuntu">Ubuntu&lt;/h1>
+&lt;p>Create a fresh Ubuntu virtual machine:&lt;/p>
+&lt;ul>
+&lt;li>Make sure that ISO Image is already somewhere on the Proxmox Installation&lt;/li>
+&lt;li>Create new VM&lt;/li>
+&lt;li>Use new Installer if asked while installing ubuntu&lt;/li>
+&lt;li>Install OpenSSH&lt;/li>
+&lt;li>After the Installation the system will reboot -&amp;gt; don&amp;rsquo;t forget to remove the ISO from the drive&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker">Docker&lt;/h2>
+&lt;p>I use Docker on the systems and I like Docker Compose.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>sudo apt update&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo apt upgrade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo apt install docker.io&lt;/p></description><content>&lt;h1 id="ubuntu">Ubuntu&lt;/h1>
+&lt;p>Create a fresh Ubuntu virtual machine:&lt;/p>
+&lt;ul>
+&lt;li>Make sure that ISO Image is already somewhere on the Proxmox Installation&lt;/li>
+&lt;li>Create new VM&lt;/li>
+&lt;li>Use new Installer if asked while installing ubuntu&lt;/li>
+&lt;li>Install OpenSSH&lt;/li>
+&lt;li>After the Installation the system will reboot -&amp;gt; don&amp;rsquo;t forget to remove the ISO from the drive&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker">Docker&lt;/h2>
+&lt;p>I use Docker on the systems and I like Docker Compose.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>sudo apt update&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo apt upgrade&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo apt install docker.io&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo adduser mylez&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo usermod -aG sudo mylez&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>su - mylez&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo usermod -aG docker mylez&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Logout and login again and test if docker containers can be run:&lt;/p>
+&lt;ul>
+&lt;li>docker run hello-world&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-compose">Docker Compose&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>sudo apt install ca-certificates curl gnupg&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo install -m 0755 -d /etc/apt/keyrings&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>curl -fsSL &lt;a href="https://download.docker.com/linux/ubuntu/gpg">https://download.docker.com/linux/ubuntu/gpg&lt;/a> | sudo gpg &amp;ndash;dearmor -o /etc/apt/keyrings/docker.gpg&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo chmod a+r /etc/apt/keyrings/docker.gpg&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>echo &lt;br>
+&amp;ldquo;deb [arch=$(dpkg &amp;ndash;print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] &lt;a href="https://download.docker.com/linux/ubuntu">https://download.docker.com/linux/ubuntu&lt;/a> &lt;br>
+$(. /etc/os-release &amp;amp;&amp;amp; echo &amp;ldquo;$VERSION_CODENAME&amp;rdquo;) stable&amp;rdquo; | &lt;br>
+sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo apt update&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo apt install docker-compose-plugin&lt;/p>
+&lt;/li>
+&lt;/ul></content></item><item><title>tabby</title><link>https://myl3z.me/posts/ai/tabby/</link><pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate><guid>https://myl3z.me/posts/ai/tabby/</guid><description>&lt;h1 id="tabby">tabby&lt;/h1>
 &lt;p>&lt;a href="https://github.com/TabbyML/tabby">https://github.com/TabbyML/tabby&lt;/a>&lt;/p>
 &lt;h2 id="questions">Questions&lt;/h2>
 &lt;ul>
 &lt;li>What is tabby?&lt;/li>
 &lt;li>How can I use it?&lt;/li>
 &lt;li>How can I install it?&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;ul>
+&lt;li>Make sure that Docker and Docker Compose is installed&lt;/li>
+&lt;li>&lt;/li>
 &lt;/ul></description><content>&lt;h1 id="tabby">tabby&lt;/h1>
 &lt;p>&lt;a href="https://github.com/TabbyML/tabby">https://github.com/TabbyML/tabby&lt;/a>&lt;/p>
 &lt;h2 id="questions">Questions&lt;/h2>
@@ -12,6 +100,11 @@
 &lt;li>What is tabby?&lt;/li>
 &lt;li>How can I use it?&lt;/li>
 &lt;li>How can I install it?&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;ul>
+&lt;li>Make sure that Docker and Docker Compose is installed&lt;/li>
+&lt;li>&lt;/li>
 &lt;/ul></content></item><item><title>About</title><link>https://myl3z.me/about/</link><pubDate>Fri, 20 Sep 2024 00:29:11 +0100</pubDate><guid>https://myl3z.me/about/</guid><description>&lt;p>Hi, my name is xander and I like cyber security, software development and servers.&lt;/p>
 &lt;p>Currenlty I&amp;rsquo;m studying &lt;a href="https://www.iu.de/en/bachelor/cyber-security/">Bachelor Cyber Security&lt;/a> at the &lt;a href="https://www.iu.de/en/">IU International University of Applied Sciences&lt;/a>.&lt;/p>
 &lt;p>In my free time I like to bring interesting ideas to life, play around with tech learning new things.&lt;/p>

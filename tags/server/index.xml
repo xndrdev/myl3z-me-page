@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on myl3z.me - My Notes</title><link>https://myl3z.me/posts/</link><description>Recent content in Posts on myl3z.me - My Notes</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>xander</copyright><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://myl3z.me/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Fresh Ubuntu and Docker installation</title><link>https://myl3z.me/posts/server/fresh-ubuntu-vm/</link><pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate><guid>https://myl3z.me/posts/server/fresh-ubuntu-vm/</guid><description>&lt;h1 id="ubuntu">Ubuntu&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Server on myl3z.me - My Notes</title><link>https://myl3z.me/tags/server/</link><description>Recent content in Server on myl3z.me - My Notes</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>xander</copyright><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://myl3z.me/tags/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Fresh Ubuntu and Docker installation</title><link>https://myl3z.me/posts/server/fresh-ubuntu-vm/</link><pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate><guid>https://myl3z.me/posts/server/fresh-ubuntu-vm/</guid><description>&lt;h1 id="ubuntu">Ubuntu&lt;/h1>
 &lt;p>Create a fresh Ubuntu virtual machine:&lt;/p>
 &lt;ul>
 &lt;li>Make sure that ISO Image is already somewhere on the Proxmox Installation&lt;/li>
@@ -81,28 +81,4 @@ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null&lt;/p>
 &lt;li>
 &lt;p>sudo apt install docker-compose-plugin&lt;/p>
 &lt;/li>
-&lt;/ul></content></item><item><title>tabby</title><link>https://myl3z.me/posts/ai/tabby/</link><pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate><guid>https://myl3z.me/posts/ai/tabby/</guid><description>&lt;h1 id="tabby">tabby&lt;/h1>
-&lt;p>&lt;a href="https://github.com/TabbyML/tabby">https://github.com/TabbyML/tabby&lt;/a>&lt;/p>
-&lt;h2 id="questions">Questions&lt;/h2>
-&lt;ul>
-&lt;li>What is tabby?&lt;/li>
-&lt;li>How can I use it?&lt;/li>
-&lt;li>How can I install it?&lt;/li>
-&lt;/ul>
-&lt;h2 id="installation">Installation&lt;/h2>
-&lt;ul>
-&lt;li>Make sure that Docker and Docker Compose is installed&lt;/li>
-&lt;li>&lt;/li>
-&lt;/ul></description><content>&lt;h1 id="tabby">tabby&lt;/h1>
-&lt;p>&lt;a href="https://github.com/TabbyML/tabby">https://github.com/TabbyML/tabby&lt;/a>&lt;/p>
-&lt;h2 id="questions">Questions&lt;/h2>
-&lt;ul>
-&lt;li>What is tabby?&lt;/li>
-&lt;li>How can I use it?&lt;/li>
-&lt;li>How can I install it?&lt;/li>
-&lt;/ul>
-&lt;h2 id="installation">Installation&lt;/h2>
-&lt;ul>
-&lt;li>Make sure that Docker and Docker Compose is installed&lt;/li>
-&lt;li>&lt;/li>
 &lt;/ul></content></item></channel></rss>
