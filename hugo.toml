@@ -1,0 +1,76 @@
+baseURL = 'https://myl3z.me/'
+title = 'myl3z.me'
+theme = 'hugo-book'
+
+# Zeigt "Last modified" und Commit-Links im Footer.
+# Die GitHub Action muss dafuer mit fetch-depth: 0 auschecken.
+enableGitInfo = true
+enableRobotsTXT = true
+disablePathToLower = true
+
+# Uebersetzungen werden ueber getrennte Content-Verzeichnisse gepflegt.
+# Gleicher Pfad in content.en/ und content.de/ = dieselbe Seite in zwei Sprachen.
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[markup]
+  # Voraussetzung fuer die mermaid/katex/columns-Shortcodes des Themes.
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+
+  [markup.highlight]
+    style = 'base16-snazzy'
+
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+
+[languages]
+  [languages.en]
+    label = 'English'
+    locale = 'en'
+    contentDir = 'content.en'
+    weight = 1
+
+    [[languages.en.menu.after]]
+      name = 'GitHub'
+      url = 'https://github.com/xndrdev'
+      weight = 10
+
+  [languages.de]
+    label = 'Deutsch'
+    locale = 'de'
+    contentDir = 'content.de'
+    weight = 2
+
+    [[languages.de.menu.after]]
+      name = 'GitHub'
+      url = 'https://github.com/xndrdev'
+      weight = 10
+
+[params]
+  # light | dark | auto (folgt der OS-Einstellung)
+  BookTheme = 'auto'
+
+  # Wurzel des Sidebar-Baums.
+  BookSection = 'docs'
+
+  # Inhaltsverzeichnis rechts, Volltextsuche (fuse.js, Index wird im Browser gebaut).
+  BookToC = true
+  BookSearch = true
+
+  # Keine Kommentare (sonst wuerde das Theme Disqus einbinden).
+  BookComments = false
+
+  # Sprachumschalter erscheint nur, wenn die Uebersetzung wirklich existiert.
+  BookTranslatedOnly = true
+
+  BookDateFormat = 'January 2, 2006'
+
+  BookRepo = 'https://github.com/xndrdev/myl3z-me-page'
+  BookEditLink = '{{ .Site.Params.BookRepo }}/edit/main/{{ .Path }}'
+  BookLastChangeLink = '{{ .Site.Params.BookRepo }}/commit/{{ .GitInfo.Hash }}'

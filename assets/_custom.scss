@@ -1,0 +1,7 @@
+/*
+  Ueberschreibt themes/hugo-book/assets/_custom.scss.
+  Wird am Ende von book.scss eingebunden, hat also Vorrang vor allen Theme-Styles.
+
+  Theme-Variablen (Farben, Breiten, Fonts) lassen sich stattdessen ueber eine eigene
+  assets/_variables.scss setzen — dieselbe Mechanik, nur frueher im Ladeprozess.
+*/
