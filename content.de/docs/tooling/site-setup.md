@@ -44,9 +44,9 @@ doppelt geschrieben werden.
 
 {{% /steps %}}
 
-{{% hint info %}}
-Seiten mit `draft: true` fehlen im Produktions-Build. Der Schalter `-D` macht sie lokal sichtbar.
-{{% /hint %}}
+> [!NOTE]
+> Seiten mit `draft: true` fehlen im Produktions-Build. Der Schalter `-D` macht sie lokal
+> sichtbar.
 
 ## Lokale Befehle
 
@@ -78,7 +78,6 @@ git commit -am "chore: bump hugo-book to v14"
 
 {{< /tabs >}}
 
-{{% hint warning %}}
-Das Theme bringt Breaking Changes zwischen Major-Releases. Das Submodule ist bewusst auf einen
-Tag gepinnt — Updates passieren, wenn sie gewollt sind, nicht beim naechsten Klon.
-{{% /hint %}}
+> [!WARNING]
+> Das Theme bringt Breaking Changes zwischen Major-Releases. Das Submodule ist bewusst auf
+> einen Tag gepinnt — Updates passieren, wenn sie gewollt sind, nicht beim naechsten Klon.

@@ -17,9 +17,8 @@ Notes on cyber security, Linux servers and development.
 {{% columns %}}
 
 - ## Notes
-  Structured, long-lived write-ups. Things worth looking up again in six months, kept in the sidebar tree and updated when they change.
-
-<--->
+  Structured, long-lived write-ups. Things worth looking up again in six months, kept in the
+  sidebar tree and updated when they change.
 
 - ## Blog
   Dated entries. What I ran into, what I fixed, what turned out to be wrong.

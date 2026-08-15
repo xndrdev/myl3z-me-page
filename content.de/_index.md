@@ -20,8 +20,6 @@ Notizen zu Cyber Security, Linux-Servern und Entwicklung.
   Strukturierte Beitraege mit laengerer Haltbarkeit. Dinge, die ich in einem halben Jahr
   wieder nachschlagen will — im Sidebar-Baum, und aktualisiert, wenn sie sich aendern.
 
-<--->
-
 - ## Blog
   Datierte Eintraege. Woran ich haengen geblieben bin, was geholfen hat, was sich als falsch
   herausgestellt hat.

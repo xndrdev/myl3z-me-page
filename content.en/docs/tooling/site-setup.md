@@ -43,10 +43,9 @@ switcher only appears when a translation actually exists, so nothing has to be w
 
 {{% /steps %}}
 
-{{% hint info %}}
-Pages with `draft: true` are excluded from the production build. The `-D` flag makes them
-visible locally.
-{{% /hint %}}
+> [!NOTE]
+> Pages with `draft: true` are excluded from the production build. The `-D` flag makes them
+> visible locally.
 
 ## Local commands
 
@@ -78,7 +77,6 @@ git commit -am "chore: bump hugo-book to v14"
 
 {{< /tabs >}}
 
-{{% hint warning %}}
-The theme ships breaking changes between major releases. The submodule is pinned to a tag on
-purpose — updates happen when they are wanted, not on the next clone.
-{{% /hint %}}
+> [!WARNING]
+> The theme ships breaking changes between major releases. The submodule is pinned to a tag on
+> purpose — updates happen when they are wanted, not on the next clone.
