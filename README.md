@@ -50,7 +50,7 @@ GitHub Pages. In den Repo-Settings unter *Pages* muss **Source: GitHub Actions**
 
 ### DNS fuer die Custom-Domain
 
-Beim Registrar von `myl3z.me` setzen:
+Steht bereits, hier nur zur Referenz. Beim Registrar von `myl3z.me` gesetzt:
 
 | Typ | Name | Wert |
 |-----|------|------|
@@ -64,9 +64,9 @@ Beim Registrar von `myl3z.me` setzen:
 | AAAA | `@` | `2606:50c0:8003::153` |
 | CNAME | `www` | `xndrdev.github.io.` |
 
-Danach in den Pages-Settings die Domain `myl3z.me` eintragen und *Enforce HTTPS* aktivieren,
-sobald das Zertifikat ausgestellt ist. Bei Deployment ueber Actions zieht GitHub die Domain aus
-den Repo-Settings, nicht aus einer `CNAME`-Datei im Repo.
+Die Domain und *Enforce HTTPS* sind in den Pages-Settings hinterlegt. Bei Deployment ueber
+Actions zieht GitHub die Domain aus den Repo-Settings, nicht aus einer `CNAME`-Datei im Repo —
+eine solche Datei im Repo waere wirkungslos.
 
 ## Theme aktualisieren
 
