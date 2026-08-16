@@ -16,7 +16,9 @@ Darauf laeuft jetzt **Debian 13**, installiert vom Netinst-Image, ohne Desktop. 
 die Stable-Reihe genau das tut, was man von einer Maschine erwartet, die einfach durchlaufen
 soll: wenig Bewegung, lange Supportzeitraeume, keine Ueberraschungen beim Update. Netinst,
 weil auf einer Kiste ohne Bildschirm nichts installiert sein muss, was ich nicht selbst
-angefordert habe.
+angefordert habe. Zu diesem Minimalismus gehoert, dass `sudo` nicht dabei war — das kam
+nachtraeglich dazu, samt Freischaltung meines Benutzers
+([sudo nachruesten]({{< relref "/docs/linux/sudo-setup" >}})).
 
 Den Installer-Stick habe ich im Terminal geschrieben — die Schritte stehen unter
 [Boot-Stick im Terminal]({{< relref "/docs/linux/bootable-usb" >}}), die Erklaerung der
@@ -29,6 +31,11 @@ nach dem naechsten Router-Neustart moeglicherweise eine andere — fuer einen Re
 demnaechst selbst die Namensaufloesung im Netz macht, waere das der falsche Anfang. Der
 Aufbau der Konfiguration und ein Fallstrick bei der Nameserver-Zeile stehen unter
 [Statische IP mit ifupdown]({{< relref "/docs/linux/static-ip" >}}).
+
+Damit war der naechste Schritt naheliegend: Public Key auf die Maschine, Alias `dns01` in die
+lokale `~/.ssh/config`. Der Thin Client steht ohne Bildschirm und Tastatur da, jeder weitere
+Handgriff passiert ueber `ssh dns01`. Was in dem Config-Block steht und warum, habe ich unter
+[SSH-Config und Key-Login]({{< relref "/docs/linux/ssh-config" >}}) notiert.
 
 ## Als naechstes: Pi-hole
 

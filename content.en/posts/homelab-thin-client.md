@@ -15,7 +15,9 @@ I want on it first, it is plenty.
 It now runs **Debian 13**, installed from the netinst image, no desktop. Debian because the
 stable branch does exactly what you want from a machine that is supposed to just keep
 running: little movement, long support windows, no surprises on upgrade. Netinst because a
-box without a screen should not have anything installed that I did not ask for.
+box without a screen should not have anything installed that I did not ask for. Part of that
+minimalism is that `sudo` was not included — it was added afterwards, along with enabling my
+user for it ([Adding sudo]({{< relref "/docs/linux/sudo-setup" >}})).
 
 I wrote the installer stick from the terminal — the steps are under
 [Bootable USB from the Terminal]({{< relref "/docs/linux/bootable-usb" >}}), and the commands
@@ -28,6 +30,11 @@ next router reboot — the wrong footing for a machine that is about to handle n
 for the network. How the configuration is put together, and one pitfall in the nameserver
 line, is written up under
 [Static IP with ifupdown]({{< relref "/docs/linux/static-ip" >}}).
+
+That made the next step obvious: public key onto the machine, an alias `dns01` in the local
+`~/.ssh/config`. The thin client sits there without screen or keyboard, so everything from
+here happens over `ssh dns01`. What goes into that config block and why is written up under
+[SSH Config and Key Login]({{< relref "/docs/linux/ssh-config" >}}).
 
 ## Next up: Pi-hole
 
