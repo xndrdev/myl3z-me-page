@@ -38,7 +38,7 @@ auto enp1s0
 iface enp1s0 inet static
     address 10.10.10.3/16
     gateway 10.10.1.1
-    dns-nameservers 10.10.1.1
+    dns-nameservers 10.10.1.1 1.1.1.1
 ```
 
 | Zeile | Bedeutung |
@@ -47,11 +47,43 @@ iface enp1s0 inet static
 | `iface enp1s0 inet static` | IPv4 (`inet`), Adresse fest vergeben statt per DHCP. Fuer IPv6 waere es `inet6` |
 | `address 10.10.10.3/16` | Adresse in CIDR-Notation. `/16` bedeutet Netz `10.10.0.0` mit Hosts von `10.10.0.1` bis `10.10.255.254`. Aeltere Anleitungen schreiben stattdessen `address` und `netmask 255.255.0.0` — gleichwertig, aber unnoetig umstaendlich |
 | `gateway 10.10.1.1` | Default-Route fuer alles, was nicht im eigenen Netz liegt. Muss innerhalb des durch die Maske aufgespannten Netzes liegen |
-| `dns-nameservers 10.10.1.1` | Nameserver fuer die Aufloesung. Mehrere Adressen werden durch Leerzeichen getrennt |
+| `dns-nameservers 10.10.1.1 1.1.1.1` | Nameserver fuer die Aufloesung, durch Leerzeichen getrennt. Der zweite ist der Ausweichweg, falls der erste nicht antwortet |
 
 > [!WARNING]
 > Die feste Adresse muss ausserhalb des DHCP-Bereichs des Routers liegen. Sonst vergibt der
 > Router dieselbe Adresse irgendwann an ein anderes Geraet, und beide sind gestoert.
+
+## Zwei Nameserver als Absicherung
+
+Ein Server ohne funktionierende Namensaufloesung kann keine Pakete aktualisieren, keine Zeit
+synchronisieren und nichts nach aussen melden. Ein zweiter Eintrag faengt den Ausfall des
+ersten ab — hier der Router als lokaler Resolver, dahinter ein oeffentlicher.
+
+Wie die Liste abgearbeitet wird, entscheidet der Resolver der C-Bibliothek, nicht das Netz:
+
+- **Strikt der Reihe nach.** Der erste Eintrag wird immer zuerst gefragt. Es gibt weder
+  Lastverteilung noch eine Bevorzugung des schnelleren Servers.
+- **Umschalten kostet Zeit.** Antwortet der erste nicht, laeuft erst der Timeout ab
+  (standardmaessig 5 Sekunden), danach ist der zweite dran. Solange der erste tot ist,
+  faellt diese Wartezeit bei *jeder* Anfrage an.
+- **Nur Ausfaelle werden umgangen.** Ein Timeout oder ein `SERVFAIL` fuehrt zum naechsten
+  Server. Ein `NXDOMAIN` ist dagegen eine gueltige Antwort und wird durchgereicht — ein
+  Nameserver, der falsch antwortet, wird nicht uebersprungen.
+- **Maximal drei Eintraege.** Alles darueber hinaus ignoriert die glibc.
+
+Das Verhalten laesst sich anpassen, wenn die Wartezeit stoert:
+
+```text
+options timeout:2 attempts:1
+```
+
+> [!WARNING]
+> Sobald ein eigener DNS-Server im Netz laeuft — etwa Pi-hole —, wird der oeffentliche
+> Zweiteintrag zum Loch im Filter: Anfragen gehen daran vorbei, ungefiltert und ohne
+> Protokoll. Und zeigt der Eintrag auf einen Resolver, der seinerseits an den eigenen
+> DNS-Server weiterleitet, entsteht eine Schleife. Auf dem DNS-Server selbst gehoert deshalb
+> `127.0.0.1` in die Liste, und der oeffentliche Resolver wird *in* dessen Konfiguration als
+> Upstream eingetragen, nicht daneben.
 
 ## Uebernehmen
 
@@ -104,10 +136,19 @@ Die Konfiguration bleibt an einer Stelle — `/etc/network/interfaces` ist die Q
 
 {{% tab "resolv.conf direkt pflegen" %}}
 ```sh
-echo 'nameserver 10.10.1.1' | sudo tee /etc/resolv.conf
+printf 'nameserver 10.10.1.1\nnameserver 1.1.1.1\n' | sudo tee /etc/resolv.conf
 ```
 Ein Paket weniger, dafuer zwei Dateien, die zusammenpassen muessen. Die Zeile
-`dns-nameservers` ist dann nur noch Dokumentation.
+`dns-nameservers` ist dann nur noch Dokumentation — wer sie spaeter aendert und die
+`resolv.conf` vergisst, sucht den Fehler an der falschen Stelle.
 {{% /tab %}}
 
 {{< /tabs >}}
+
+Umgekehrt gilt: ist `resolvconf` installiert, wird `/etc/resolv.conf` generiert und
+Handaenderungen daran verschwinden beim naechsten `ifup`. Welcher Fall vorliegt, verraet der
+Kopf der Datei — eine generierte traegt einen `DO NOT EDIT`-Hinweis:
+
+```sh
+head -3 /etc/resolv.conf
+```
