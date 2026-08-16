@@ -23,6 +23,13 @@ Den Installer-Stick habe ich im Terminal geschrieben — die Schritte stehen unt
 beteiligten Befehle unter
 [lsblk, umount, dd, sync]({{< relref "/docs/linux/disk-commands" >}}).
 
+Nach der Installation hat die Kiste eine feste Adresse bekommen, eingetragen in
+`/etc/network/interfaces` und mit `systemctl reboot` uebernommen. Per DHCP waere die Adresse
+nach dem naechsten Router-Neustart moeglicherweise eine andere — fuer einen Rechner, der
+demnaechst selbst die Namensaufloesung im Netz macht, waere das der falsche Anfang. Der
+Aufbau der Konfiguration und ein Fallstrick bei der Nameserver-Zeile stehen unter
+[Statische IP mit ifupdown]({{< relref "/docs/linux/static-ip" >}}).
+
 ## Als naechstes: Pi-hole
 
 Der erste Dienst wird Pi-hole. DNS ist der naheliegende Anfang: es ist der eine Dienst, von

@@ -22,6 +22,13 @@ I wrote the installer stick from the terminal — the steps are under
 involved are explained in
 [lsblk, umount, dd, sync]({{< relref "/docs/linux/disk-commands" >}}).
 
+After the install the box got a fixed address, written to `/etc/network/interfaces` and
+applied with `systemctl reboot`. Under DHCP that address might be a different one after the
+next router reboot — the wrong footing for a machine that is about to handle name resolution
+for the network. How the configuration is put together, and one pitfall in the nameserver
+line, is written up under
+[Static IP with ifupdown]({{< relref "/docs/linux/static-ip" >}}).
+
 ## Next up: Pi-hole
 
 The first service will be Pi-hole. DNS is the obvious place to start: it is the one service
