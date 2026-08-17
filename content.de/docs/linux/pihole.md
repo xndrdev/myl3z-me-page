@@ -88,6 +88,7 @@ Der Stand nach der Installation auf dem Homelab-Rechner:
 | `dns.upstreams` | `8.8.8.8`, `8.8.4.4` | wohin nicht geblockte Anfragen weitergehen |
 | `dns.dnssec` | `false` | Signaturen der Antworten werden nicht geprueft |
 | `dns.queryLogging` | `true` | jede Anfrage landet mit Client im Log |
+| `dns.hosts` | `10.10.10.3 dns01.xlab.internal` | eigener Name fuer den Rechner selbst |
 | `dns.blocking.mode` | `NULL` | geblockte Namen werden mit `0.0.0.0` beantwortet |
 | `dhcp.active` | `false` | Adressen vergibt weiterhin der Router |
 
@@ -112,14 +113,51 @@ sudo pihole-FTL --config dns.dnssec true
 > FTL schreibt die Datei allerdings selbst neu, sobald sich etwas aendert — eigene Kommentare
 > darin ueberleben das nicht.
 
+## Lokale Namen
+
+Ein DNS-Server im eigenen Netz kann mehr als filtern: er kann Namen vergeben. Statt sich
+Adressen zu merken, traegt man einmal ein, welcher Name auf welche Adresse zeigt — im
+Webinterface unter *Settings → Local DNS Records*, in der Konfiguration ist es `dns.hosts`:
+
+```sh
+pihole-FTL --config dns.hosts
+```
+
+```text
+[ 10.10.10.3 dns01.xlab.internal ]
+```
+
+Geschrieben werden die Eintraege nach `/etc/pihole/hosts/custom.list`, im Format der
+`/etc/hosts`. Der erste Name ist der Rechner selbst: `dns01` fuer die Rolle, `xlab.internal`
+als Zone fuer das Homelab.
+
+Die Wahl der Endung ist keine Geschmacksfrage:
+
+| Endung | Lage |
+|--------|------|
+| `.internal` | seit 2024 von der ICANN ausdruecklich fuer private Netze reserviert und damit dauerhaft frei von Kollisionen mit oeffentlichen Domains |
+| `.local` | von mDNS belegt (RFC 6762). Wer sie im DNS verwendet, streitet sich mit Avahi und Bonjour darum, wer antwortet |
+| `.lan`, `.home`, `.box` | ueblich, aber nirgends reserviert. Funktioniert, bis jemand die Endung als oeffentliche TLD betreibt |
+| eine echte eigene Domain | sauber und aufwendig: die Zone muss gepflegt werden, und intern wie extern soll sie unterschiedlich antworten |
+
+> [!NOTE]
+> Der Eintrag gilt nur fuer die Vorwaertsaufloesung. Rueckwaerts antwortet Pi-hole auf
+> `dig -x 10.10.10.3` weiterhin mit `pi.hole` — das ist der PTR, den es sich selbst gibt
+> (`dns.piholePTR`). Wer beides gleich haben will, aendert diesen Wert.
+
+Davon zu unterscheiden ist `dns.domain.name` (Standard: `lan`). Diese Domain haengt Pi-hole an
+Namen an, die es ueber DHCP lernt — solange der Router den DHCP macht, spielt der Wert keine
+Rolle.
+
 ## Pruefen
 
 Der ehrliche Test kommt nicht vom Server selbst, sondern von einem anderen Rechner im Netz:
 
 ```sh
-dig +short @10.10.10.3 example.com      # normale Antwort, Upstream funktioniert
-dig +short @10.10.10.3 doubleclick.net  # 0.0.0.0 = geblockt
-dig +short @10.10.10.3 pi.hole          # 10.10.10.3, die eigene Adresse
+dig +short @10.10.10.3 example.com           # normale Antwort, Upstream funktioniert
+dig +short @10.10.10.3 doubleclick.net       # 0.0.0.0 = geblockt
+dig +short @10.10.10.3 pi.hole               # 10.10.10.3, die eigene Adresse
+dig +short @10.10.10.3 dns01.xlab.internal   # 10.10.10.3, der eigene Eintrag
 ```
 
 Auf dem Server selbst:

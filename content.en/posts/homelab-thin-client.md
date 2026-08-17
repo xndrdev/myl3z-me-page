@@ -57,8 +57,19 @@ itself still asks the router rather than itself. And the upstream the installer 
 Google — a filter that keeps reporting every query there is only half a win. A service that
 runs and a service that is used are two different things.
 
-## Next up
+One last thing the machine got is a name of its own, recorded in Pi-hole itself:
+`dns01.xlab.internal`. `dns01` for the role, `xlab.internal` as the zone for the homelab. The
+suffix is a deliberate pick — `.internal` has been reserved for private networks since 2024,
+whereas `.local` already belongs to mDNS and `.lan` is written down nowhere. That settles the
+scheme everything else will be addressed under, before there is more than one machine.
 
-Those three points first: point the router's DHCP at `10.10.10.3`, move the server's
-`resolv.conf` to `127.0.0.1`, pick the upstream deliberately. Only then is the filter actually
-on the network — and only then is it worth thinking about the next service.
+The three points above stay open for now. They are on the list, not in the way.
+
+## Next up: Proxmox
+
+The next step is Proxmox. So far the homelab is one machine with one service on it — every
+further service would share the same Debian install, with everything that comes with it:
+shared packages, shared outages, no clean way back. Virtualisation turns that around: one
+base, separate machines on top, each one backed up, cloned and thrown away on its own.
+
+Notes will follow once it runs.

@@ -60,8 +60,21 @@ den der Installer vorschlaegt, ist Google — ein Filter, der jede Anfrage weite
 meldet, ist nur ein halber Gewinn. Ein laufender Dienst und ein benutzter Dienst sind zwei
 verschiedene Dinge.
 
-## Als naechstes
+Zum Schluss hat der Rechner noch einen Namen bekommen, eingetragen in Pi-hole selbst:
+`dns01.xlab.internal`. `dns01` fuer die Rolle, `xlab.internal` als Zone fuer das Homelab. Die
+Endung ist bewusst gewaehlt — `.internal` ist seit 2024 ausdruecklich fuer private Netze
+reserviert, waehrend `.local` schon mDNS gehoert und `.lan` nirgends festgeschrieben ist.
+Damit steht das Schema, unter dem alles Weitere ansprechbar sein soll, bevor es mehr als eine
+Maschine gibt.
 
-Diese drei Punkte zuerst: DHCP des Routers auf `10.10.10.3` umstellen, die `resolv.conf` des
-Servers auf `127.0.0.1` ziehen, den Upstream bewusst waehlen. Erst danach ist der Filter
-wirklich im Netz — und erst dann lohnt es sich, ueber den naechsten Dienst nachzudenken.
+Die drei Punkte von oben bleiben vorerst offen. Sie stehen auf der Liste, nicht im Weg.
+
+## Als naechstes: Proxmox
+
+Der naechste Schritt ist Proxmox. Bis hierher ist das Homelab eine Maschine mit einem Dienst
+darauf — jeder weitere Dienst wuerde sich dieselbe Debian-Installation teilen, mit allem, was
+daran haengt: gemeinsame Pakete, gemeinsame Ausfaelle, kein sauberes Zurueck. Virtualisierung
+dreht das um: eine Basis, darauf getrennte Maschinen, die einzeln gesichert, kopiert und
+weggeworfen werden koennen.
+
+Notizen dazu folgen, wenn es laeuft.
