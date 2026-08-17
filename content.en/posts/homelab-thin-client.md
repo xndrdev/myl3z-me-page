@@ -63,13 +63,22 @@ suffix is a deliberate pick — `.internal` has been reserved for private networ
 whereas `.local` already belongs to mDNS and `.lan` is written down nowhere. That settles the
 scheme everything else will be addressed under, before there is more than one machine.
 
-The three points above stay open for now. They are on the list, not in the way.
+## Next up: the network
 
-## Next up: Proxmox
+The next step is not the next machine but the UDM. The reason is the first of the three open
+points: as long as the gateway hands out its own address as the nameserver, not a single
+device in the house asks the filter that is now running. One field in the DHCP settings
+decides whether the past few days achieved anything at all.
 
-The next step is Proxmox. So far the homelab is one machine with one service on it — every
-further service would share the same Debian install, with everything that comes with it:
-shared packages, shared outages, no clean way back. Virtualisation turns that around: one
-base, separate machines on top, each one backed up, cloned and thrown away on its own.
+The second reason is order. A hypervisor wants to know at install time which segment it sits
+in, which address it gets and whether its bridge runs tagged. Rebuild the network afterwards
+and you configure it a second time — and anyone touching the bridges of a machine without a
+screen tends to lock themselves out doing it. Address ranges, segments and names are better
+settled while there is one machine rather than five.
+
+Proxmox comes after that. So far the homelab is one machine with one service on it, and every
+further service would share the same Debian install: shared packages, shared outages, no clean
+way back. Virtualisation turns that around — one base, separate machines on top, each one
+backed up, cloned and thrown away on its own.
 
 Notes will follow once it runs.

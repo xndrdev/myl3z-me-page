@@ -67,14 +67,22 @@ reserviert, waehrend `.local` schon mDNS gehoert und `.lan` nirgends festgeschri
 Damit steht das Schema, unter dem alles Weitere ansprechbar sein soll, bevor es mehr als eine
 Maschine gibt.
 
-Die drei Punkte von oben bleiben vorerst offen. Sie stehen auf der Liste, nicht im Weg.
+## Als naechstes: das Netz
 
-## Als naechstes: Proxmox
+Der naechste Schritt ist nicht der naechste Rechner, sondern die UDM. Der Grund ist der erste
+der drei offenen Punkte: Solange das Gateway seine eigene Adresse als Nameserver verteilt,
+fragt kein Geraet im Haushalt den Filter, der jetzt laeuft. Ein Feld im DHCP entscheidet
+darueber, ob der Aufwand der letzten Tage ueberhaupt etwas bewirkt.
 
-Der naechste Schritt ist Proxmox. Bis hierher ist das Homelab eine Maschine mit einem Dienst
-darauf — jeder weitere Dienst wuerde sich dieselbe Debian-Installation teilen, mit allem, was
-daran haengt: gemeinsame Pakete, gemeinsame Ausfaelle, kein sauberes Zurueck. Virtualisierung
-dreht das um: eine Basis, darauf getrennte Maschinen, die einzeln gesichert, kopiert und
-weggeworfen werden koennen.
+Der zweite Grund ist die Reihenfolge. Ein Hypervisor will schon bei der Installation wissen,
+in welchem Segment er liegt, welche Adresse er bekommt und ob seine Bridge getaggt arbeitet.
+Wer das Netz danach umbaut, konfiguriert ihn ein zweites Mal — und wer an den Bridges einer
+Maschine ohne Bildschirm schraubt, sperrt sich dabei gern selbst aus. Adressbereiche,
+Segmente und Namen legt man besser fest, solange es eine Maschine ist und nicht fuenf.
+
+Danach kommt Proxmox. Bis hierher ist das Homelab eine Maschine mit einem Dienst darauf, und
+jeder weitere Dienst wuerde sich dieselbe Debian-Installation teilen: gemeinsame Pakete,
+gemeinsame Ausfaelle, kein sauberes Zurueck. Virtualisierung dreht das um — eine Basis,
+darauf getrennte Maschinen, die einzeln gesichert, kopiert und weggeworfen werden koennen.
 
 Notizen dazu folgen, wenn es laeuft.
