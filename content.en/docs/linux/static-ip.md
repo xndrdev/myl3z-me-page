@@ -78,11 +78,12 @@ options timeout:2 attempts:1
 ```
 
 > [!WARNING]
-> As soon as your own DNS server runs on the network — Pi-hole, for instance — the public
-> second entry becomes a hole in the filter: queries slip past it, unfiltered and unlogged.
-> And if the entry points at a resolver that forwards back to your own DNS server, you get a
-> loop. On the DNS server itself, `127.0.0.1` belongs in the list, and the public resolver is
-> configured as an upstream *inside* it rather than alongside it.
+> As soon as your own DNS server runs on the network — on this machine that is now
+> [Pi-hole]({{< relref "/docs/linux/pihole" >}}) — the public second entry becomes a hole in
+> the filter: queries slip past it, unfiltered and unlogged. And if the entry points at a
+> resolver that forwards back to your own DNS server, you get a loop. On the DNS server
+> itself, `127.0.0.1` belongs in the list, and the public resolver is configured as an
+> upstream *inside* it rather than alongside it.
 
 ## Apply
 

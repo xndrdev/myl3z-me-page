@@ -37,12 +37,31 @@ lokale `~/.ssh/config`. Der Thin Client steht ohne Bildschirm und Tastatur da, j
 Handgriff passiert ueber `ssh dns01`. Was in dem Config-Block steht und warum, habe ich unter
 [SSH-Config und Key-Login]({{< relref "/docs/linux/ssh-config" >}}) notiert.
 
-## Als naechstes: Pi-hole
+## Der erste Dienst: Pi-hole
 
-Der erste Dienst wird Pi-hole. DNS ist der naheliegende Anfang: es ist der eine Dienst, von
-dem jedes andere Geraet im Netz sofort etwas hat, ohne dass dort irgendetwas konfiguriert
-werden muesste. Ausserdem ist er ein ehrlicher Test fuer den Rest des Aufbaus — faellt der
-DNS-Server aus, merkt man das im Haushalt binnen Minuten. Ein Dienst, der 24/7 halten muss,
-zwingt von Anfang an zu sauberen Grundlagen.
+Pi-hole laeuft. DNS war der naheliegende Anfang: es ist der eine Dienst, von dem jedes andere
+Geraet im Netz sofort etwas hat, ohne dass dort irgendetwas konfiguriert werden muesste.
+Ausserdem ist er ein ehrlicher Test fuer den Rest des Aufbaus — faellt der DNS-Server aus,
+merkt man das im Haushalt binnen Minuten. Ein Dienst, der 24/7 halten muss, zwingt von Anfang
+an zu sauberen Grundlagen.
 
-Notizen dazu folgen, wenn er laeuft.
+Die Installation selbst ist ein Einzeiler und nach ein paar Minuten durch. Version 6 ist
+dabei ein anderes System als das, was die meisten Anleitungen im Netz beschreiben: sie
+installiert sich als Debian-Paket, bringt ihren Webserver selbst mit und legt alles in eine
+einzige `pihole.toml`. Was sie ausserdem noch mitbringt — einen NTP-Server zum Beispiel —,
+sieht man am ehesten daran, welche Ports danach belegt sind. Der Aufbau, die Werte dieser
+Installation und die Befehle fuer den Alltag stehen unter
+[Pi-hole als DNS-Server]({{< relref "/docs/linux/pihole" >}}).
+
+Interessanter als die Installation ist, was sie nicht erledigt: Der Router verteilt weiterhin
+seine eigene Adresse als Nameserver, also gehen alle Anfragen nach wie vor an Pi-hole vorbei.
+Der Thin Client selbst fragt ebenfalls noch den Router statt sich selbst. Und der Upstream,
+den der Installer vorschlaegt, ist Google — ein Filter, der jede Anfrage weiterhin dorthin
+meldet, ist nur ein halber Gewinn. Ein laufender Dienst und ein benutzter Dienst sind zwei
+verschiedene Dinge.
+
+## Als naechstes
+
+Diese drei Punkte zuerst: DHCP des Routers auf `10.10.10.3` umstellen, die `resolv.conf` des
+Servers auf `127.0.0.1` ziehen, den Upstream bewusst waehlen. Erst danach ist der Filter
+wirklich im Netz — und erst dann lohnt es sich, ueber den naechsten Dienst nachzudenken.

@@ -36,12 +36,29 @@ That made the next step obvious: public key onto the machine, an alias `dns01` i
 here happens over `ssh dns01`. What goes into that config block and why is written up under
 [SSH Config and Key Login]({{< relref "/docs/linux/ssh-config" >}}).
 
-## Next up: Pi-hole
+## The first service: Pi-hole
 
-The first service will be Pi-hole. DNS is the obvious place to start: it is the one service
-every other device on the network benefits from immediately, without configuring anything on
-those devices. It is also an honest test of the rest of the setup — when the DNS server goes
-down, the household notices within minutes. A service that has to hold up 24/7 forces clean
+Pi-hole is running. DNS was the obvious place to start: it is the one service every other
+device on the network benefits from immediately, without configuring anything on those
+devices. It is also an honest test of the rest of the setup — when the DNS server goes down,
+the household notices within minutes. A service that has to hold up 24/7 forces clean
 foundations from day one.
 
-Notes will follow once it runs.
+The install itself is a one-liner and done in a few minutes. Version 6 is a different system
+from the one most guides out there describe, though: it installs as a Debian package, brings
+its own web server, and puts everything into a single `pihole.toml`. What else it brings along
+— an NTP server, for one — is easiest to spot in the list of ports occupied afterwards. How it
+is put together, the values of this particular install and the commands for day-to-day use are
+written up under [Pi-hole as a DNS Server]({{< relref "/docs/linux/pihole" >}}).
+
+More interesting than the install is what it does not take care of: the router still hands out
+its own address as the nameserver, so every query keeps going past Pi-hole. The thin client
+itself still asks the router rather than itself. And the upstream the installer suggests is
+Google — a filter that keeps reporting every query there is only half a win. A service that
+runs and a service that is used are two different things.
+
+## Next up
+
+Those three points first: point the router's DHCP at `10.10.10.3`, move the server's
+`resolv.conf` to `127.0.0.1`, pick the upstream deliberately. Only then is the filter actually
+on the network — and only then is it worth thinking about the next service.

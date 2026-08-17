@@ -78,12 +78,13 @@ options timeout:2 attempts:1
 ```
 
 > [!WARNING]
-> Sobald ein eigener DNS-Server im Netz laeuft — etwa Pi-hole —, wird der oeffentliche
-> Zweiteintrag zum Loch im Filter: Anfragen gehen daran vorbei, ungefiltert und ohne
-> Protokoll. Und zeigt der Eintrag auf einen Resolver, der seinerseits an den eigenen
-> DNS-Server weiterleitet, entsteht eine Schleife. Auf dem DNS-Server selbst gehoert deshalb
-> `127.0.0.1` in die Liste, und der oeffentliche Resolver wird *in* dessen Konfiguration als
-> Upstream eingetragen, nicht daneben.
+> Sobald ein eigener DNS-Server im Netz laeuft — auf dieser Maschine inzwischen
+> [Pi-hole]({{< relref "/docs/linux/pihole" >}}) —, wird der oeffentliche Zweiteintrag zum
+> Loch im Filter: Anfragen gehen daran vorbei, ungefiltert und ohne Protokoll. Und zeigt der
+> Eintrag auf einen Resolver, der seinerseits an den eigenen DNS-Server weiterleitet, entsteht
+> eine Schleife. Auf dem DNS-Server selbst gehoert deshalb `127.0.0.1` in die Liste, und der
+> oeffentliche Resolver wird *in* dessen Konfiguration als Upstream eingetragen, nicht
+> daneben.
 
 ## Uebernehmen
 
