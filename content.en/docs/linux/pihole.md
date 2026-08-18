@@ -167,10 +167,11 @@ pihole -t                               # follow queries live
 
 The install leaves a DNS server running. It does not leave it being used.
 
-**Nobody asks it.** As long as the router hands out its own address as the DNS server, every
-query keeps going past it. Only once `10.10.10.3` is set as the nameserver in the router's
-DHCP — or Pi-hole takes over DHCP itself — does anything arrive. Clients with a hardcoded DNS
-server, or with DNS-over-HTTPS in the browser, stay outside either way.
+**Nobody asks it.** Right after the install the gateway keeps handing out its own address as
+the nameserver, so every query bypasses the filter. Only once `10.10.10.3` is set there — or
+Pi-hole takes over DHCP itself — does anything arrive. Done since:
+[Handing Out Pi-hole via DHCP]({{< relref "/docs/network/udm-dhcp-dns" >}}). Clients with a
+hardcoded DNS server, or with DNS-over-HTTPS in the browser, stay outside either way.
 
 **The server does not ask itself.** Its `/etc/resolv.conf` still points at the router and a
 public resolver:

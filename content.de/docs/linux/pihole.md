@@ -172,10 +172,12 @@ pihole -t                               # Anfragen live mitlesen
 
 Nach der Installation laeuft ein DNS-Server. Benutzt wird er deshalb noch nicht.
 
-**Niemand fragt ihn.** Solange der Router seine eigene Adresse als DNS verteilt, gehen alle
-Anfragen weiter an ihn vorbei. Erst wenn im DHCP des Routers `10.10.10.3` als Nameserver
-eingetragen ist — oder Pi-hole selbst den DHCP uebernimmt —, kommt etwas an. Bei Clients mit
-fest eingetragenem DNS oder mit DNS-over-HTTPS im Browser bleibt es auch dann dabei.
+**Niemand fragt ihn.** Direkt nach der Installation verteilt das Gateway weiterhin seine
+eigene Adresse als Nameserver, alle Anfragen gehen also am Filter vorbei. Erst wenn dort
+`10.10.10.3` eingetragen ist — oder Pi-hole selbst den DHCP uebernimmt —, kommt etwas an.
+Inzwischen erledigt: [Pi-hole per DHCP verteilen]({{< relref "/docs/network/udm-dhcp-dns" >}}).
+Bei Clients mit fest eingetragenem DNS oder mit DNS-over-HTTPS im Browser bleibt es trotzdem
+dabei.
 
 **Der Server fragt sich nicht selbst.** Seine `/etc/resolv.conf` zeigt weiter auf den Router
 und einen oeffentlichen Resolver:
