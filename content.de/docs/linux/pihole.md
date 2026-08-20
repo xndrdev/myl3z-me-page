@@ -92,6 +92,12 @@ Der Stand nach der Installation auf dem Homelab-Rechner:
 | `dns.blocking.mode` | `NULL` | geblockte Namen werden mit `0.0.0.0` beantwortet |
 | `dhcp.active` | `false` | Adressen vergibt weiterhin der Router |
 
+> [!NOTE]
+> Zwei dieser Werte sind inzwischen andere: `dns.upstreams` zeigt auf Quad9
+> ([Upstream-DNS waehlen]({{< relref "/docs/linux/dns-upstream" >}})), und die
+> `/etc/resolv.conf` des Rechners auf ihn selbst. Die Tabelle beschreibt den Stand direkt
+> nach der Installation.
+
 `listeningMode` ist der Wert, der ueber die Angriffsflaeche entscheidet. `LOCAL` beantwortet
 Anfragen aus Netzen, in denen der Rechner selbst eine Adresse hat, und ignoriert den Rest.
 `ALL` beantwortet alles — auf einer Maschine, die je eine oeffentliche Adresse bekommt, wird
@@ -179,28 +185,27 @@ Inzwischen erledigt: [Pi-hole per DHCP verteilen]({{< relref "/docs/network/udm-
 Bei Clients mit fest eingetragenem DNS oder mit DNS-over-HTTPS im Browser bleibt es trotzdem
 dabei.
 
-**Der Server fragt sich nicht selbst.** Seine `/etc/resolv.conf` zeigt weiter auf den Router
-und einen oeffentlichen Resolver:
+**Der Server fragt sich nicht selbst.** Seine `/etc/resolv.conf` zeigte weiter auf den Router
+und einen oeffentlichen Resolver — womit der Rechner, der den Filter betreibt, der einzige im
+Netz war, der ihn nicht nutzte. Dort gehoert `nameserver 127.0.0.1` hin.
+Inzwischen erledigt: [Der DNS-Server fragt sich selbst]({{< relref "/docs/linux/static-ip#der-dns-server-fragt-sich-selbst" >}}).
 
-```sh
-cat /etc/resolv.conf
-```
-
-Damit ist der Rechner, der den Filter betreibt, der einzige im Netz, der ihn nicht nutzt.
-Dort gehoert `nameserver 127.0.0.1` hin — und zwar an die richtige Stelle, sonst ist die
-Aenderung beim naechsten `ifup` wieder weg
+Die Sorge, die Aenderung koenne beim naechsten `ifup` wieder verschwinden, hat sich dabei als
+unbegruendet herausgestellt: Auf dieser Maschine generiert niemand die Datei — trotz des
+irrefuehrenden Kopfzeilen-Kommentars
 ([Fallstrick: dns-nameservers ohne resolvconf]({{< relref "/docs/linux/static-ip#fallstrick-dns-nameservers-ohne-resolvconf" >}})).
 
 **Der Upstream ist eine Entscheidung, keine Voreinstellung.** Der Installer schlaegt Google
 vor, und wer bestaetigt, hat einen Filter aufgebaut, der jede einzelne Anfrage weiterhin an
-Google meldet — nur gebuendelt ueber eine Adresse. Quad9 (`9.9.9.9`) oder Cloudflare
-(`1.1.1.1`) sind andere Anbieter mit anderen Zusagen, aber dieselbe Bauart. Wer niemandem
-melden will, was im Haushalt aufgeloest wird, braucht einen eigenen rekursiven Resolver
-(`unbound`) hinter Pi-hole.
+Google meldet — nur gebuendelt ueber eine Adresse. Inzwischen steht dort Quad9; die Abwaegung
+zwischen den Anbietern und der Weg zum eigenen rekursiven Resolver stehen unter
+[Upstream-DNS waehlen]({{< relref "/docs/linux/dns-upstream" >}}).
 
 **DNSSEC ist aus.** Die Antworten des Upstreams werden ungeprueft uebernommen. Anschalten
 kostet ein paar Millisekunden pro Anfrage und bricht bei Domains mit kaputten Signaturen — was
-dann wie ein Ausfall von Pi-hole aussieht.
+dann wie ein Ausfall von Pi-hole aussieht. Bewusst so belassen, solange der Upstream selbst
+validiert; die Begruendung und die Pruefbefehle stehen unter
+[DNSSEC: bewusst noch nicht]({{< relref "/docs/linux/dns-upstream#dnssec-bewusst-noch-nicht" >}}).
 
 **Das Webinterface haengt auf Port 80.** Im LAN erreichbar, unverschluesselt, mit einem
 Passwort davor. Das TLS-Zertifikat auf 443 ist selbst ausgestellt, jeder Browser warnt davor.
