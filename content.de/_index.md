@@ -32,3 +32,5 @@ Notizen zu Cyber Security, Linux-Servern und Entwicklung.
 - [Linux &amp; Server]({{< relref "/docs/linux" >}}) — systemd, Netzwerk, Self-Hosting
 - [Entwicklung]({{< relref "/docs/development" >}}) — Code, Git, taegliches Werkzeug
 - [KI &amp; Tooling]({{< relref "/docs/tooling" >}}) — Editoren, Agenten, lokale Setups
+
+Wer das hier schreibt: [Ueber mich]({{< relref "/about" >}}).

@@ -31,3 +31,5 @@ Notes on cyber security, Linux servers and development.
 - [Linux &amp; Server]({{< relref "/docs/linux" >}}) — systemd, networking, self-hosting
 - [Development]({{< relref "/docs/development" >}}) — code, git, everyday tooling
 - [AI &amp; Tooling]({{< relref "/docs/tooling" >}}) — editors, agents, local setups
+
+Who writes this: [About]({{< relref "/about" >}}).
