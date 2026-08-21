@@ -31,6 +31,7 @@ Notizen zu Cyber Security, Linux-Servern und Entwicklung.
 - [Cyber Security]({{< relref "/docs/cybersecurity" >}}) — Labs, Tooling, Lesenotizen
 - [Linux &amp; Server]({{< relref "/docs/linux" >}}) — systemd, Netzwerk, Self-Hosting
 - [Entwicklung]({{< relref "/docs/development" >}}) — Code, Git, taegliches Werkzeug
+- [Shopware]({{< relref "/docs/shopware" >}}) — ddev-Umgebung, Shop-Setup, taeglicher Workflow
 - [KI &amp; Tooling]({{< relref "/docs/tooling" >}}) — Editoren, Agenten, lokale Setups
 
 Wer das hier schreibt: [Ueber mich]({{< relref "/about" >}}).
