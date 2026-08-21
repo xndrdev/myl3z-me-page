@@ -1,0 +1,36 @@
+{{- /*
+  Ueberschreibt das eingebaute RSS-Template fuer die Blog-Sektionen.
+
+  Hugos Standard nimmt fuer eine Sektion .RegularPages - das sind auf /posts/ null Eintraege,
+  seit die Beitraege in Projekt-Unterordnern liegen. Rekursiv gelesen enthaelt der Dach-Feed
+  wieder alle Beitraege, die Projekt-Feeds ihre eigenen.
+*/ -}}
+{{- $pages := .RegularPagesRecursive.ByDate.Reverse -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+  {{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ if eq .Title .Site.Title }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</description>
+    <generator>Hugo</generator>
+    <language>{{ .Site.Language.Locale }}</language>
+    {{- with .Site.Params.author }}<managingEditor>{{ . }}</managingEditor>{{ end }}
+    {{- with $pages }}<lastBuildDate>{{ (index . 0).Date.UTC.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    {{- with .OutputFormats.Get "rss" }}
+      {{ printf "<atom:link href=%q rel=\"self\" type=%q/>" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.UTC.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>

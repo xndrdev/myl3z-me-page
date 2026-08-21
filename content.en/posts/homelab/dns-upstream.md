@@ -1,11 +1,13 @@
 ---
 title: Homelab, step two — who the DNS server trusts
 date: 2026-08-20
+aliases:
+  - /posts/homelab-dns-upstream/
 ---
 
 # Homelab, step two — who the DNS server trusts
 
-[Part one]({{< relref "/posts/homelab-thin-client" >}}) ended with Pi-hole running and the
+[Part one]({{< relref "/posts/homelab/thin-client" >}}) ended with Pi-hole running and the
 observation that a service that runs and a service that gets used are two different things.
 Three points were left open. Two are now done, and the third deliberately is not.
 

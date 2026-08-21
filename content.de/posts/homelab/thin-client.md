@@ -1,6 +1,8 @@
 ---
 title: Homelab, erster Schritt — Thin Client mit Debian 13
 date: 2026-08-16
+aliases:
+  - /posts/homelab-thin-client/
 ---
 
 # Homelab, erster Schritt — Thin Client mit Debian 13

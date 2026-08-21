@@ -37,6 +37,24 @@ defaultContentLanguageInSubdir = false
     weight = 1
 
     [[languages.en.menu.after]]
+      identifier = 'blog'
+      name = 'Blog'
+      url = '/posts/'
+      weight = 5
+
+    [[languages.en.menu.after]]
+      parent = 'blog'
+      name = 'Homelab'
+      url = '/posts/homelab/'
+      weight = 1
+
+    [[languages.en.menu.after]]
+      parent = 'blog'
+      name = 'Shopware Shop'
+      url = '/posts/shop/'
+      weight = 2
+
+    [[languages.en.menu.after]]
       name = 'About'
       url = '/about/'
       weight = 8
@@ -51,6 +69,24 @@ defaultContentLanguageInSubdir = false
     locale = 'de'
     contentDir = 'content.de'
     weight = 2
+
+    [[languages.de.menu.after]]
+      identifier = 'blog'
+      name = 'Blog'
+      url = '/de/posts/'
+      weight = 5
+
+    [[languages.de.menu.after]]
+      parent = 'blog'
+      name = 'Homelab'
+      url = '/de/posts/homelab/'
+      weight = 1
+
+    [[languages.de.menu.after]]
+      parent = 'blog'
+      name = 'Shopware Shop'
+      url = '/de/posts/shop/'
+      weight = 2
 
     [[languages.de.menu.after]]
       name = 'Ueber mich'

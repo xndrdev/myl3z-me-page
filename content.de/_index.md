@@ -21,8 +21,9 @@ Notizen zu Cyber Security, Linux-Servern und Entwicklung.
   wieder nachschlagen will — im Sidebar-Baum, und aktualisiert, wenn sie sich aendern.
 
 - ## Blog
-  Datierte Eintraege. Woran ich haengen geblieben bin, was geholfen hat, was sich als falsch
-  herausgestellt hat.
+  Datierte Eintraege, getrennt nach Projekt: [Homelab]({{< relref "/posts/homelab" >}}) und
+  [Shopware Shop]({{< relref "/posts/shop" >}}). Woran ich haengen geblieben bin, was geholfen
+  hat, was sich als falsch herausgestellt hat.
 
 {{% /columns %}}
 

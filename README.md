@@ -21,7 +21,7 @@ sonst schlaegt das SCSS-Kompilieren fehl). Unter Arch: `sudo pacman -S hugo`.
 
 ```sh
 hugo new docs/linux/systemd-timers.md      # Notiz im Sidebar-Baum (englisch)
-hugo new posts/mein-erster-post.md         # datierter Blogeintrag
+hugo new posts/homelab/mein-erster-post.md # datierter Blogeintrag im Projekt homelab
 ```
 
 Die Archetypes des Themes setzen das Front Matter. Wichtig in `docs/`:
@@ -87,3 +87,6 @@ git add themes/hugo-book && git commit -m "chore: bump hugo-book to v14"
 - `assets/_variables.scss` — Theme-Variablen wie Farben und Breiten ueberschreiben
 - `layouts/…` — einzelne Partials des Themes gezielt ersetzen, Pfad wie in
   `themes/hugo-book/layouts/`
+- `layouts/posts/list.html` und `layouts/posts/list.rss.xml` — Blog-Uebersicht und -Feed.
+  Beide lesen rekursiv, damit `/posts/` die Eintraege aus den Projektordnern
+  (`posts/homelab/`, `posts/shop/`) gemeinsam zeigt

@@ -1,6 +1,8 @@
 ---
 title: Wie diese Seite gebaut ist
 weight: 10
+aliases:
+  - /posts/site-rebuilt-with-hugo-book/
 ---
 
 # Wie diese Seite gebaut ist
@@ -16,9 +18,10 @@ myl3z.me/
 ├── hugo.toml              # eine Config, beide Sprachen
 ├── content.en/            # Standardsprache → myl3z.me/
 │   ├── docs/              # Sidebar-Baum
-│   └── posts/             # datierte Eintraege
+│   └── posts/             # datierte Eintraege, ein Ordner je Projekt
 ├── content.de/            # → myl3z.me/de/
 ├── assets/_custom.scss    # eigene Styles
+├── layouts/posts/         # Blog-Liste und -Feed, siehe unten
 ├── themes/hugo-book/      # Git-Submodule, gepinnt auf v13
 └── .github/workflows/hugo.yml
 ```
@@ -47,6 +50,23 @@ doppelt geschrieben werden.
 > [!NOTE]
 > Seiten mit `draft: true` fehlen im Produktions-Build. Der Schalter `-D` macht sie lokal
 > sichtbar.
+
+## Blog nach Projekten
+
+Datierte Eintraege liegen unter `content.*/posts/<projekt>/`, aktuell `homelab/` und `shop/`.
+Jeder Projektordner hat eine `_index.md` mit kurzer Beschreibung und bekommt dadurch eine
+eigene Uebersichtsseite und einen eigenen RSS-Feed. `/posts/` bleibt das Dach und zeigt alle
+Eintraege gemeinsam, neueste zuerst.
+
+Damit das funktioniert, liegen zwei Templates im Projekt statt im Theme:
+
+| Datei | Warum |
+|---|---|
+| `layouts/posts/list.html` | Gibt den Text der `_index.md` ueber der Liste aus und paginiert rekursiv, damit `/posts/` die Eintraege aus allen Projektordnern zeigt |
+| `layouts/posts/list.rss.xml` | Gleiches Problem im Feed: Hugos Standard nimmt nur direkte Kindseiten, der Dach-Feed waere sonst leer |
+
+Ein neues Projekt ist ein Ordner mit `_index.md` — dazu ein Menue-Eintrag mit
+`parent = 'blog'` in der `hugo.toml`.
 
 ## Lokale Befehle
 

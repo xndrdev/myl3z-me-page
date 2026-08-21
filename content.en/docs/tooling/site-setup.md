@@ -1,6 +1,8 @@
 ---
 title: How This Site Is Built
 weight: 10
+aliases:
+  - /posts/site-rebuilt-with-hugo-book/
 ---
 
 # How This Site Is Built
@@ -16,9 +18,10 @@ myl3z.me/
 ├── hugo.toml              # single config, both languages
 ├── content.en/            # default language → myl3z.me/
 │   ├── docs/              # sidebar tree
-│   └── posts/             # dated entries
+│   └── posts/             # dated entries, one folder per project
 ├── content.de/            # → myl3z.me/de/
 ├── assets/_custom.scss    # style overrides
+├── layouts/posts/         # blog list and feed, see below
 ├── themes/hugo-book/      # git submodule, pinned to v13
 └── .github/workflows/hugo.yml
 ```
@@ -46,6 +49,23 @@ switcher only appears when a translation actually exists, so nothing has to be w
 > [!NOTE]
 > Pages with `draft: true` are excluded from the production build. The `-D` flag makes them
 > visible locally.
+
+## Blog by project
+
+Dated entries live under `content.*/posts/<project>/`, currently `homelab/` and `shop/`. Each
+project folder has an `_index.md` with a short description, which gives it its own overview
+page and its own RSS feed. `/posts/` stays the umbrella and lists all entries together, newest
+first.
+
+For this to work, two templates live in the project instead of the theme:
+
+| File | Why |
+|---|---|
+| `layouts/posts/list.html` | Renders the `_index.md` text above the list and paginates recursively, so `/posts/` shows entries from every project folder |
+| `layouts/posts/list.rss.xml` | Same problem in the feed: Hugo's default only takes direct child pages, which would leave the umbrella feed empty |
+
+A new project is a folder with an `_index.md` — plus a menu entry with `parent = 'blog'` in
+`hugo.toml`.
 
 ## Local commands
 

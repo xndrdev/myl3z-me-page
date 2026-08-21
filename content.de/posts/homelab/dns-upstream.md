@@ -1,11 +1,13 @@
 ---
 title: Homelab, zweiter Schritt — wem der DNS-Server vertraut
 date: 2026-08-20
+aliases:
+  - /posts/homelab-dns-upstream/
 ---
 
 # Homelab, zweiter Schritt — wem der DNS-Server vertraut
 
-Der [erste Teil]({{< relref "/posts/homelab-thin-client" >}}) endete mit einem laufenden
+Der [erste Teil]({{< relref "/posts/homelab/thin-client" >}}) endete mit einem laufenden
 Pi-hole und dem Satz, dass ein laufender Dienst und ein benutzter Dienst zwei verschiedene
 Dinge sind. Drei Punkte standen offen. Zwei davon sind jetzt erledigt, und der dritte ist es
 bewusst nicht.

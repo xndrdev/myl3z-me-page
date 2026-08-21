@@ -1,6 +1,8 @@
 ---
 title: Homelab, Step One — A Thin Client Running Debian 13
 date: 2026-08-16
+aliases:
+  - /posts/homelab-thin-client/
 ---
 
 # Homelab, Step One — A Thin Client Running Debian 13
