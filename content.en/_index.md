@@ -21,9 +21,10 @@ Notes on cyber security, Linux servers and development.
   sidebar tree and updated when they change.
 
 - ## Blog
-  Dated entries, split by project: [Homelab]({{< relref "/posts/homelab" >}}) and
-  [Shopware Shop]({{< relref "/posts/shop" >}}). What I ran into, what I fixed, what turned
-  out to be wrong.
+  Dated entries, split by project: [Homelab]({{< relref "/posts/homelab" >}}),
+  [Shopware Shop]({{< relref "/posts/shop" >}}), [Fitty]({{< relref "/posts/fitty" >}}), and
+  [Open WebUI]({{< relref "/posts/open-webui" >}}). What I ran into, what I fixed, what
+  turned out to be wrong.
 
 {{% /columns %}}
 

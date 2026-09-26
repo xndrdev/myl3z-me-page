@@ -55,6 +55,18 @@ defaultContentLanguageInSubdir = false
       weight = 2
 
     [[languages.en.menu.after]]
+      parent = 'blog'
+      name = 'Fitty'
+      url = '/posts/fitty/'
+      weight = 3
+
+    [[languages.en.menu.after]]
+      parent = 'blog'
+      name = 'Open WebUI'
+      url = '/posts/open-webui/'
+      weight = 4
+
+    [[languages.en.menu.after]]
       name = 'About'
       url = '/about/'
       weight = 8
@@ -87,6 +99,18 @@ defaultContentLanguageInSubdir = false
       name = 'Shopware Shop'
       url = '/de/posts/shop/'
       weight = 2
+
+    [[languages.de.menu.after]]
+      parent = 'blog'
+      name = 'Fitty'
+      url = '/de/posts/fitty/'
+      weight = 3
+
+    [[languages.de.menu.after]]
+      parent = 'blog'
+      name = 'Open WebUI'
+      url = '/de/posts/open-webui/'
+      weight = 4
 
     [[languages.de.menu.after]]
       name = 'Ueber mich'

@@ -21,9 +21,10 @@ Notizen zu Cyber Security, Linux-Servern und Entwicklung.
   wieder nachschlagen will — im Sidebar-Baum, und aktualisiert, wenn sie sich aendern.
 
 - ## Blog
-  Datierte Eintraege, getrennt nach Projekt: [Homelab]({{< relref "/posts/homelab" >}}) und
-  [Shopware Shop]({{< relref "/posts/shop" >}}). Woran ich haengen geblieben bin, was geholfen
-  hat, was sich als falsch herausgestellt hat.
+  Datierte Eintraege, getrennt nach Projekt: [Homelab]({{< relref "/posts/homelab" >}}),
+  [Shopware Shop]({{< relref "/posts/shop" >}}), [Fitty]({{< relref "/posts/fitty" >}}) und
+  [Open WebUI]({{< relref "/posts/open-webui" >}}). Woran ich haengen geblieben bin, was
+  geholfen hat, was sich als falsch herausgestellt hat.
 
 {{% /columns %}}
 
