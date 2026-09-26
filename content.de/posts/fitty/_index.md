@@ -27,7 +27,7 @@ vergleichen.
 
 | Bereich | Technologie und Aufgabe |
 | --- | --- |
-| iOS und Web | React Native mit Expo, TypeScript und Expo Router — eine gemeinsame Codebasis fuer App und Browser. |
+| iOS und Web | React Native mit [Expo]({{< relref "/docs/development/expo" >}}), TypeScript und Expo Router — eine gemeinsame Codebasis fuer App und Browser. |
 | Backend | Go mit pgx — API, Anwendungslogik und Zugriff auf PostgreSQL. |
 | Datenbank | PostgreSQL innerhalb von Supabase — Profile, Chats, Ziele und Tracking-Eintraege. |
 | Anmeldung und Bilder | Supabase Auth fuer Login und Sessions, Supabase Storage fuer private Fotos. |

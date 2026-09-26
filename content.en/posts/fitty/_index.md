@@ -25,7 +25,7 @@ intended to help compare physical changes over time.
 
 | Area | Technology and purpose |
 | --- | --- |
-| iOS and web | React Native with Expo, TypeScript, and Expo Router — one shared codebase for the app and browser. |
+| iOS and web | React Native with [Expo]({{< relref "/docs/development/expo" >}}), TypeScript, and Expo Router — one shared codebase for the app and browser. |
 | Backend | Go with pgx — API, application logic, and PostgreSQL access. |
 | Database | PostgreSQL within Supabase — profiles, chats, targets, and tracking entries. |
 | Login and images | Supabase Auth for login and sessions, Supabase Storage for private photos. |
