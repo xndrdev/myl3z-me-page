@@ -14,6 +14,10 @@ visitor's phone, neither of which lets you install anything.
 The price is in the same sentence: a service every device relies on is also a service whose
 outage every device notices.
 
+How Pi-hole imports blocklists, which HaGeZi lists I have now added and how to investigate
+false positives is covered in
+[Understanding Pi-hole and Blocklists]({{< relref "/docs/linux/pihole-blocklisten" >}}).
+
 ## Prerequisites
 
 - A fixed address, because every client has it hardcoded

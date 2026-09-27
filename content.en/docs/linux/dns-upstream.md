@@ -34,10 +34,11 @@ recipient — it only consolidates the delivery.
 | Your own ISP | announced by the router | Sees the traffic anyway. On the other hand, some providers redirect non-existent names to their own search pages instead of answering `NXDOMAIN` |
 | Your own recursive resolver | `127.0.0.1#5335` | `unbound` queries the root servers itself. No provider gets the full picture any more — at the price of one more piece of software on the machine |
 
-Quad9 is the choice here. Its malware filter complements Pi-hole instead of duplicating it:
-Pi-hole filters ads and tracking, Quad9 filters malicious software. The price sits right next
-to it — a second filter you do not maintain yourself can be wrong. If a domain looks wrongly
-blocked, check it against `9.9.9.10`, the unfiltered variant of the same service.
+Quad9 is the choice here. Pi-hole now also filters known malware domains locally using
+the [HaGeZi blocklists]({{< relref "/docs/linux/pihole-blocklisten" >}}). Quad9 remains
+another layer of filtering for forwarded queries; their coverage can overlap. A second
+filter you do not maintain yourself can also be wrong. If a domain looks wrongly blocked,
+check it against `9.9.9.10`, the unfiltered variant of the same service.
 
 > [!NOTE]
 > **ECS** (EDNS Client Subnet) passes part of the client address on to the upstream so it can
