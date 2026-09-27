@@ -39,6 +39,12 @@ Server dran.
 Das Netz steht, das Homelab ist aufgeraeumt und die Hardware fuer den naechsten Schritt ist
 zusammengebaut. Jetzt geht es darum, die beiden Proxmox-Server neu aufzusetzen.
 
+Fuer die Installation von Windows und Proxmox nutze ich seit einiger Zeit MediCat USB,
+das auf Ventoy basiert. Damit liegen die Installations-ISOs zusammen auf einem Stick und
+lassen sich beim Booten auswaehlen. Den werde ich auch fuer die beiden Server verwenden.
+Wie MediCat und Ventoy zusammenspielen und wie die Installer auf den Stick kommen, steht
+unter [MediCat & Ventoy]({{< relref "/docs/linux/medicat-ventoy" >}}).
+
 Was Proxmox eigentlich ist, wie es auf Debian aufbaut und wie der Einstieg in eine eigene
 kleine Distribution aussehen koennte, steht unter
 [Proxmox verstehen]({{< relref "/docs/linux/proxmox" >}}).

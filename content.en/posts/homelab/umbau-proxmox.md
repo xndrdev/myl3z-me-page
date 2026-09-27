@@ -37,6 +37,12 @@ separate project for later; the other two servers come first.
 The network is in place, the homelab is tidy and the hardware for the next step is assembled.
 Now it is time to set up both Proxmox servers from scratch.
 
+I have been using MediCat USB, which is built on Ventoy, to install Windows and Proxmox
+for a while. It keeps the installation ISOs together on one USB drive, ready to select at
+boot. I will be using it for these two servers as well. How MediCat and Ventoy fit together
+and how to add the installers to the drive is covered in
+[MediCat & Ventoy]({{< relref "/docs/linux/medicat-ventoy" >}}).
+
 What Proxmox actually is, how it builds on Debian and what a first step towards a small
 distribution of your own might look like is covered in
 [Understanding Proxmox]({{< relref "/docs/linux/proxmox" >}}).
