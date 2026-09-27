@@ -15,6 +15,10 @@ laesst.
 Der Preis dafuer steht im selben Satz: ein Dienst, den jedes Geraet nutzt, ist auch ein
 Dienst, dessen Ausfall jedes Geraet merkt.
 
+Wie Pi-hole Blocklisten einliest, welche HaGeZi-Listen inzwischen eingebunden sind und wie
+man Fehlblockierungen eingrenzt, steht unter
+[Pi-hole und Blocklisten verstehen]({{< relref "/docs/linux/pihole-blocklisten" >}}).
+
 ## Voraussetzungen
 
 - Eine feste Adresse, denn jeder Client traegt sie fest ein

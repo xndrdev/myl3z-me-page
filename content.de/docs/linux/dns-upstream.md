@@ -34,10 +34,12 @@ den Adressaten nicht gewechselt, sondern nur die Zustellung gebuendelt.
 | Der eigene Anbieter | vom Router genannt | Sieht den Verkehr ohnehin. Dafuer leiten manche Anbieter nicht existierende Namen auf eigene Suchseiten um, statt `NXDOMAIN` zu antworten |
 | Eigener rekursiver Resolver | `127.0.0.1#5335` | `unbound` fragt selbst bei den Root-Servern an. Kein Anbieter bekommt mehr das vollstaendige Bild — dafuer eine eigene Software mehr auf der Maschine |
 
-Gewaehlt ist Quad9. Der Malware-Filter ergaenzt Pi-hole, statt es zu doppeln: Pi-hole filtert
-Werbung und Tracking, Quad9 filtert Schadsoftware. Der Preis steht daneben — ein zweiter
-Filter, den man nicht selbst pflegt, kann falsch liegen. Wer eine Domain verdaechtigt, prueft
-gegen `9.9.9.10`, die ungefilterte Variante desselben Dienstes.
+Gewaehlt ist Quad9. Inzwischen filtert Pi-hole mit den
+[HaGeZi-Blocklisten]({{< relref "/docs/linux/pihole-blocklisten" >}}) auch bekannte
+Schadsoftware-Domains lokal. Quad9 bleibt eine weitere Filterstufe fuer weitergeleitete
+Anfragen; die Abdeckung kann sich ueberschneiden. Ein zweiter Filter, den man nicht selbst
+pflegt, kann ebenfalls falsch liegen. Wer eine Domain verdaechtigt, prueft gegen
+`9.9.9.10`, die ungefilterte Variante desselben Dienstes.
 
 > [!NOTE]
 > **ECS** (EDNS Client Subnet) reicht einen Teil der Client-Adresse an den Upstream weiter,
