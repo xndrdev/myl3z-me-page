@@ -101,6 +101,10 @@ storage and quorum: the required majority of votes in the cluster. Shared manage
 automatic recovery after a host failure are different functions.
 [Proxmox: Cluster Manager](https://github.com/proxmox/pve-docs/blob/master/pvecm.adoc)
 
+The `xlab` cluster is now configured, with `pve01`, `pve02` and an external quorum vote
+on the DNS server. The setup is documented in
+[Two-node Proxmox cluster with a QDevice]({{< relref "/docs/linux/proxmox-cluster" >}}).
+
 ## How Debian becomes Proxmox
 
 The **kernel** manages the processor, memory and hardware, among other things. A

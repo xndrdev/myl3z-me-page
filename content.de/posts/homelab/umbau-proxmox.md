@@ -53,3 +53,6 @@ Im letzten Beitrag war noch von einem Hypervisor die Rede. Inzwischen sind es zw
 die eingerichtet werden wollen, und zwei weitere, die auf einen Platz in der Garage warten.
 Fuer den Moment reicht die Aufgabe auf dem Tisch: Proxmox auf beiden Servern sauber
 installieren. Wie das laeuft, kommt in den naechsten Eintrag.
+
+Inzwischen stehen beide Installationen und der gemeinsame Cluster. Weiter geht es mit
+[Homelab, fuenfter Schritt — zwei Proxmox-Nodes, eine Oberflaeche]({{< relref "/posts/homelab/proxmox-cluster" >}}).
