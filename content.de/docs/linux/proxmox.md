@@ -104,6 +104,11 @@ Mehrheit der Stimmen im Cluster. Gemeinsame Verwaltung und automatische Wiederhe
 nach einem Host-Ausfall sind unterschiedliche Funktionen.
 [Proxmox: Cluster Manager](https://github.com/proxmox/pve-docs/blob/master/pvecm.adoc)
 
+Der inzwischen eingerichtete Cluster `xlab` mit `pve01`, `pve02` und einer externen
+Quorum-Stimme auf dem DNS-Server ist unter
+[Proxmox-Cluster mit zwei Nodes und QDevice]({{< relref "/docs/linux/proxmox-cluster" >}})
+dokumentiert.
+
 ## Wie aus Debian Proxmox wird
 
 Der **Kernel** verwaltet unter anderem Prozessor, Speicher und Hardware. Eine **Distribution**

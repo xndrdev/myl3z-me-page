@@ -50,3 +50,6 @@ distribution of your own might look like is covered in
 The last post still talked about a single hypervisor. Now there are two machines waiting to
 be set up and another two waiting for a place in the garage. For now, the task at hand is
 enough: a clean Proxmox installation on both servers. How that goes will be in the next post.
+
+Both installations and their shared cluster are now in place. Continue with
+[Homelab, step five — two Proxmox nodes, one interface]({{< relref "/posts/homelab/proxmox-cluster" >}}).
