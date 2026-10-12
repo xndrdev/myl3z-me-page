@@ -113,6 +113,12 @@ defaultContentLanguageInSubdir = false
       weight = 4
 
     [[languages.de.menu.after]]
+      parent = 'blog'
+      name = 'Omarchy'
+      url = '/de/posts/omarchy/'
+      weight = 5
+
+    [[languages.de.menu.after]]
       name = 'Ueber mich'
       url = '/de/about/'
       weight = 8

@@ -15,5 +15,7 @@ Zeitpunkt — was laenger gilt, wandert in die [Notizen]({{< relref "/docs" >}})
   Tageschat, Ernaehrungs- und Bewegungs-Tracking fuer iOS und Web.
 - **[Open WebUI]({{< relref "/posts/open-webui" >}})** — lokale KI ausprobieren und die
   eigene Dokumentation mit Quellenangaben befragen.
+- **[Omarchy]({{< relref "/posts/omarchy" >}})** — Omarchy auf einem Laptop einrichten
+  und im Alltag ausprobieren.
 
 Darunter alle Eintraege gemeinsam, neueste zuerst. Jedes Projekt hat einen eigenen RSS-Feed.
